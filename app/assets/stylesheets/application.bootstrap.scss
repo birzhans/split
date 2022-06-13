@@ -1,2 +1,31 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
+
+
+body {
+  background-color: $dark;
+}
+
+.main {
+  height: 100vh;
+  overflow: scroll;
+  padding: 2rem;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  padding: 2rem;
+}
+
+.nav-link {
+  font-weight: 600;
+  color: white;
+
+  &:hover {
+    color: #cde517;
+  }
+}
