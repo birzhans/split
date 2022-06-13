@@ -1,0 +1,7 @@
+<div class="mb-2 text-light">
+  <% resource.errors.full_messages.each do |message| %>
+    <div class="p-2 card bg-danger mb-2">
+      <%= message %>
+    </div>
+  <% end %>
+</div>
