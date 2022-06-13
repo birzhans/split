@@ -1,0 +1,11 @@
+<div class="card m-3 p-3 rounded">
+  <p><%= friend.name %></p>
+  <p><%= friend.username %></p>
+  <p><%= friend.email %></p>
+
+  <p>
+    <%= link_to friend_path(id: friend.id), data: { 'turbo-method': :delete } do %>
+      <i class="bi bi-x-circle-fill text-danger"></i>
+    <% end %>
+  </p>
+</div>
