@@ -1,0 +1,9 @@
+<%= render 'shared/header', text: 'Your bills' %>
+<p>
+  <%= link_to new_bill_path, class: 'fs-4' do %>
+    <i class="bi bi-plus-circle-fill"></i>
+    Add bill
+  <% end %>
+</p>
+
+<%= render @bills %>
