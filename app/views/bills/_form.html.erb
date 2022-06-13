@@ -1,0 +1,21 @@
+<%= form_with model: bill, class: 'col-4' do |f| %>
+  <div id="errors"></div>
+
+  <div class="mb-4">
+    <%= f.label :description, class: 'form-label' %>
+    <%= f.text_field :description, placeholder: 'Mimino', class: 'form-control' %>
+  </div>
+
+  <div class="mb-4">
+    <%= f.label :payer_name, class: 'form-label' %>
+    <%= f.text_field :payer_name, value: current_user.name, class: 'form-control' %>
+  </div>
+
+  <div class="mb-4">
+    <%= f.label :total, class: 'form-label' %>
+    <%= f.text_field :total, class: 'form-control' %>
+  </div>
+
+  <%= f.submit 'Save', class: 'btn btn-primary' %>
+<% end %>
+  

@@ -1,12 +1,10 @@
-<h1>Welcome to split!</h1>
-
+<%= render 'shared/header', text: 'Welcome to split!' %>
 <% 20.times do %>
   <div class="row p-5 m-5">
-    <div class="col-6">
-      ewfwefewfewfew
-    </div>
-    <div class="col-6">
-      ewfwefewfewfew
-    </div>
+    <% 4.times do %>
+      <div class="col-3">
+        <%= SecureRandom.hex(5) %>
+      </div>
+    <% end %>
   </div>
 <% end %>
