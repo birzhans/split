@@ -10,9 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_13_070902) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_13_133555) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bills", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "payer_name", null: false
+    t.string "description", null: false
+    t.integer "total", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_bills_on_user_id"
+  end
+
+  create_table "friendships", force: :cascade do |t|
+    t.bigint "friend_one_id", null: false
+    t.bigint "friend_two_id", null: false
+    t.integer "status", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["friend_one_id", "friend_two_id"], name: "index_friendships_on_friend_one_id_and_friend_two_id", unique: true
+    t.index ["friend_one_id"], name: "index_friendships_on_friend_one_id"
+    t.index ["friend_two_id"], name: "index_friendships_on_friend_two_id"
+  end
+
+  create_table "line_items", force: :cascade do |t|
+    t.bigint "bill_id", null: false
+    t.string "description", null: false
+    t.string "total", null: false
+    t.bigint "user_id"
+    t.string "payer_name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bill_id"], name: "index_line_items_on_bill_id"
+    t.index ["user_id"], name: "index_line_items_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -29,4 +62,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_13_070902) do
     t.index ["username"], name: "index_users_on_username"
   end
 
+  add_foreign_key "bills", "users"
+  add_foreign_key "friendships", "users", column: "friend_one_id"
+  add_foreign_key "friendships", "users", column: "friend_two_id"
+  add_foreign_key "line_items", "bills"
+  add_foreign_key "line_items", "users"
 end

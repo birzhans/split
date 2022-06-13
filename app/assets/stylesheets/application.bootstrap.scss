@@ -6,6 +6,10 @@ body {
   background-color: $dark;
 }
 
+a {
+  text-decoration: none;
+}
+
 .main {
   height: 100vh;
   overflow: scroll;
