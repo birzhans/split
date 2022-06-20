@@ -1,11 +1,16 @@
-<div class="card m-3 p-3 rounded">
-  <p><%= bill.description %></p>
-  <p><%= bill.total %></p>
-  <p><%= bill.payer_name %></p>
-
-  <p>
+<div class="row">
+  <div class="col-3">
+    <%= bill.payer_name %>
+  </div>
+  <div class="col-3">
+    <%= bill.description %>
+  </div>
+  <div class="col-3">
+    <%= bill.total %>
+  </div>
+  <div class="col-3">
     <%= link_to bill_path(id: bill.id), data: { 'turbo-method': :delete } do %>
       <i class="bi bi-x-circle-fill text-danger"></i>
     <% end %>
-  </p>
+  </div>
 </div>

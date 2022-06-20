@@ -1,0 +1,11 @@
+<div class="mb-4">
+  <%= form.label :description, class: 'form-label' %>
+  <%= form.text_field :description, class: 'form-control' %>
+</div>
+
+<div class="mb-4">
+  <%= form.label :total, class: 'form-label' %>
+  <%= form.text_field :total, class: 'form-control' %>
+</div>
+
+<%= link_to "Remove", "#", data: { action: "click->nested-form#remove_association" } %>
